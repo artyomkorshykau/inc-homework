@@ -1,0 +1,69 @@
+.friendMessage {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    flex-direction: column;
+    z-index: 1;
+    margin-top: 10px;
+}
+
+.friendImageAndText {
+    display: flex;
+
+}
+
+.friendImageAndText img {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: auto;
+
+}
+
+.friendText {
+
+}
+
+.friendText:after {
+content: "";
+    width: 10px;
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50px;
+    bottom: 16px; /* Положение треугольника */
+    border: 20px solid transparent; border-bottom: 20px solid #e5e6ea;
+    z-index: -1;
+
+}
+
+.friendName {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 100;
+    background-color: #e5e6ea;
+    padding: 0 10px 10px ;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.friendMessageText {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    z-index: 100;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #e5e6ea;
+    padding: 0 10px 10px ;
+
+
+}
+
+.friendTime {
+font-size: 12px;
+   display: flex;
+    justify-content: space-evenly;
+
+}

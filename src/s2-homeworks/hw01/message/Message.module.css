@@ -1,0 +1,74 @@
+.message {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+
+}
+
+.imageAndText {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+}
+
+.imageAndText img {
+
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-top: auto;
+}
+
+.text {
+    color: black;
+    font-size: 1rem;
+}
+
+.text:after {
+    content: "";
+    width: 10px;
+    position: absolute; /* Абсолютное позиционирование */
+    left: 480px;
+    bottom: 16px; /* Положение треугольника */
+    border: 20px solid transparent; border-bottom: 20px solid #0066CC;
+    z-index: -1;
+}
+
+.name {
+    font-weight: lighter;
+    font-size: 16px;
+    display: flex;
+    justify-content: flex-end;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #0066CC;
+    padding: 0 10px 10px ;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.messageText {
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-color: #0066CC;
+    width: 100%;
+    height: 2rem;
+    color: white;
+    padding: 0 10px 10px ;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.time {
+    font-size: 12px;
+    padding-left: 8px;
+    display: flex;
+    justify-content: space-evenly;
+}
