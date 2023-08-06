@@ -5,16 +5,46 @@
 }
 
 .inputWrapper {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .superInput {
+    -webkit-font-smoothing: antialiased;
+    --header_height: 60px;
+    margin: 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: 1.5rem;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,.3);
+    border: 0;
 }
 
 .errorInput {
+    -webkit-font-smoothing: antialiased;
+    --header_height: 60px;
+    margin: 0;
+    box-sizing: border-box;
+    border: red 1px solid;
+    display: inline-flex;
+    height: 1.5rem;
+    outline: none;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 5px rgba(0,0,0,.3);
 }
 
 .errorInput:focus {
+
 }
 
 .error {
+    color:red;
 }
