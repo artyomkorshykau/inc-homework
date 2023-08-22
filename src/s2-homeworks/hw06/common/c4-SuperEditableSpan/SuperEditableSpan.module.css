@@ -2,9 +2,12 @@
 }
 
 .span {
+    color: dodgerblue;
+    margin-left: 10px;
 }
 
 .input {
+    width: 247px;
 }
 
 .pen {
