@@ -1,4 +1,5 @@
 .radio {
+    display: none;
 }
 
 .radio::before {
@@ -8,8 +9,33 @@
 .radio:checked::before {
 }
 
-.label {
+.options {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    gap: 10px;
 }
 
-.options {
+.label {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.radio>input:checked + .label:before {
+    background-color: blue;
+    border-color: blue;
 }

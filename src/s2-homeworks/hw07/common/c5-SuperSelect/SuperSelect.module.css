@@ -1,4 +1,6 @@
 .select {
+    width: 150px;
+    height: 25px;
 }
 
 .select:focus {
@@ -6,4 +8,26 @@
 
 
 .option:hover {
+    border-radius: 0;
+}
+
+select>option {
+    background-color: transparent;
+    border: 0;
+    padding-right: 15px;
+    height: 31px;
+    width: 220px;
+}
+
+.select>select {
+    width: 100%;
+    color: black;
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+    line-height: 2.5;
+    background: transparent;
+    border: 0;
+    overflow: hidden;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
