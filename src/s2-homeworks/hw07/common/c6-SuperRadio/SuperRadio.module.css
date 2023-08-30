@@ -2,13 +2,6 @@
     display: none;
 }
 
-.radio::before {
-}
-
-
-.radio:checked::before {
-}
-
 .options {
     display: flex;
     flex-direction: column;
@@ -35,7 +28,15 @@
     border: 2px solid #000;
 }
 
-.radio>input:checked + .label:before {
-    background-color: blue;
-    border-color: blue;
+input[type="radio"]:checked + span::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: calc(0.1em + 4px);
+    background-color: rgba(0, 0, 0, 0.7);
+    width: calc(1em - 6px);
+    height: calc(1em - 6px);
+    border-radius: 50%;
+    background-color: black;
+    border-color: black;
 }
