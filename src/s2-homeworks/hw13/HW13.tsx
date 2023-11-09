@@ -35,13 +35,27 @@ const HW13 = () => {
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!')
+                setInfo(res.data.info)
+                setText(res.data.errorText)
                 setImage(success200)
-                // дописать
-
             })
             .catch((e) => {
-                // дописать
-
+                if (e.code === "ERR_NETWORK") {
+                    setCode('Error!')
+                    setImage(errorUnknown)
+                    setText(e.message)
+                    setInfo(e.name)
+                } else if (e.response.status === 400) {
+                    setCode('Ошибка 400!')
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
+                    setImage(error400)
+                } else if (e.response.status === 500) {
+                    setCode('Ошибка 500!')
+                    setInfo(e.response.data.info)
+                    setText(e.response.data.errorText)
+                    setImage(error500)
+                }
             })
     }
 
@@ -55,14 +69,13 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
-                        // дописать
 
                     >
                         Send true
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-false'}
-                        onClick={send(false)}
+                        onClick={send(undefined)}
                         xType={'secondary'}
                         // дописать
 
@@ -71,7 +84,7 @@ const HW13 = () => {
                     </SuperButton>
                     <SuperButton
                         id={'hw13-send-undefined'}
-                        onClick={send(undefined)}
+                        onClick={send(false)}
                         xType={'secondary'}
                         // дописать
 
