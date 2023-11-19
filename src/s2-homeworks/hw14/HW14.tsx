@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import s2 from '../../s1-main/App.module.css'
 import s from './HW14.module.css'
-import axios from 'axios'
+import axios, {isAxiosError} from 'axios'
 import SuperDebouncedInput from './common/c8-SuperDebouncedInput/SuperDebouncedInput'
 import {useSearchParams} from 'react-router-dom'
 
@@ -12,6 +12,7 @@ import {useSearchParams} from 'react-router-dom'
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW14 в HW5/pages/JuniorPlus
 * */
+
 
 const getTechs = (find: string) => {
     return axios
@@ -34,11 +35,8 @@ const HW14 = () => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                setTechs(res?.data?.techs || [])
+                setLoading(false)
             })
     }
 
@@ -47,9 +45,8 @@ const HW14 = () => {
         // делает студент
 
         // добавить/заменить значение в квери урла
-        // setSearchParams(
+        setSearchParams(find)
 
-        //
     }
 
     useEffect(() => {
