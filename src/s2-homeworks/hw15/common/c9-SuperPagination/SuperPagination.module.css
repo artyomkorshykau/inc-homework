@@ -1,5 +1,8 @@
 .pagination {
     display: flex;
+    gap: 5px;
+    justify-content: space-evenly;
+    padding: 5px 0;
 }
 
 .text1 {
@@ -8,4 +11,8 @@
 
 .text2 {
 
+}
+
+.select {
+    width: 35px;
 }

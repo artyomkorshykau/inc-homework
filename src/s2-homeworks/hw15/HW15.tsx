@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import {CircularProgress, createTheme, ThemeProvider} from "@mui/material";
 
 /*
 * 1 - дописать SuperPagination
@@ -42,7 +43,7 @@ const HW15 = () => {
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
     const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
+    const [idLoading, setLoading] = useState(true)
     const [totalCount, setTotalCount] = useState(100)
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
@@ -51,36 +52,24 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                setTechs(res?.data?.techs || [])
+                setLoading(false)
+                setTotalCount(res?.data?.totalCount || 1)
             })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
-
-        // setPage(
-        // setCount(
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setPage(newPage)
+        setCount(newCount)
+        sendQuery({page: newPage, count: newCount})
+        setSearchParams(sort)
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
-
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        setSort(newSort)
+        setPage(1)
+        sendQuery({sort: newSort})
+        setSearchParams(newSort)
     }
 
     useEffect(() => {
@@ -102,29 +91,53 @@ const HW15 = () => {
         </div>
     ))
 
+    const theme = createTheme({
+        components: {
+            MuiPaginationItem: {
+                styleOverrides: {
+                    root: ({ownerState}) => ({
+                        ...(ownerState.page === page && {
+                            ':nth-of-type(1)': {
+                                backgroundColor: '#202020',
+                                color: '#fff'
+                            },
+                            ':nth-of-type(1):hover': {
+                                backgroundColor: '#202020',
+                                color: '#fff'
+                            }
+                        }),
+                    }),
+                },
+            },
+        },
+    })
+
     return (
         <div id={'hw15'}>
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
-
-                <SuperPagination
-                    page={page}
-                    itemsCountForPage={count}
-                    totalCount={totalCount}
-                    onChange={onChangePagination}
-                />
+                {idLoading && <div id={'hw15-loading'} className={s.loading}>
+                    <CircularProgress size={70} style={{margin: 'auto'}}/>
+                </div>}
+                <ThemeProvider theme={theme}>
+                    <SuperPagination
+                        page={page}
+                        itemsCountForPage={count}
+                        totalCount={totalCount}
+                        onChange={onChangePagination}
+                    />
+                </ThemeProvider>
 
                 <div className={s.rowHeader}>
                     <div className={s.techHeader}>
-                        tech
-                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
+                        Tech
+                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
                     </div>
 
                     <div className={s.developerHeader}>
-                        developer
-                        <SuperSort sort={sort} value={'developer'} onChange={onChangeSort}/>
+                        Developer
+                        <SuperSort sort={sort} value={'tech'} onChange={onChangeSort}/>
                     </div>
                 </div>
 
